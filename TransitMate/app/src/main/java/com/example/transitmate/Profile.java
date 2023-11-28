@@ -1,26 +1,21 @@
 package com.example.transitmate;
 
+import java.io.*;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.*;
-import java.util.ArrayList;
+public class Profile extends Fragment {
 
-import androidx.fragment.app.Fragment;
-
-public class Messages extends Fragment {
-
-    static ArrayList<MessagesListItem> chats;
-
-    public Messages() {
-        chats = new ArrayList<>();
+    public Profile(){
+        // require a empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_messages, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }

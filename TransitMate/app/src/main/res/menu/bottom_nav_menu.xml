@@ -10,7 +10,7 @@
         android:icon="@drawable/home_icon"/>
     <item
         android:id="@+id/new_trip"
-        android:title="New Trip"
+        android:title="Start New Trip"
         android:icon="@drawable/trip_icon"/>
     <item
         android:id="@+id/profile"
