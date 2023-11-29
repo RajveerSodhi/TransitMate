@@ -24,26 +24,38 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     Messages messages = new Messages();
     Home home = new Home();
-    NewTrip new_trip = new NewTrip();
+    NewTrip newTrip = new NewTrip();
     Profile profile = new Profile();
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int pageID = item.getItemId();
         if (pageID == R.id.home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, home).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, home)
+                    .commit();
             return true;
         }
         else if (pageID == R.id.messages) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, messages).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, messages)
+                    .commit();
             return true;
         }
         else if (pageID == R.id.profile) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, profile).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, profile)
+                    .commit();
             return true;
         }
         else if (pageID == R.id.new_trip) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new_trip).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, newTrip)
+                    .commit();
             return true;
         }
         return false;
