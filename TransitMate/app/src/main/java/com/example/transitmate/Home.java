@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+
 
 public class Home extends Fragment {
 
@@ -24,4 +26,10 @@ public class Home extends Fragment {
 
         return view;
     }
+
+    public void launchSettings(View view) {
+        Intent intent = new Intent(getActivity(), SettingsActivity.class);
+        startActivity(intent);
+    }
+
 }
