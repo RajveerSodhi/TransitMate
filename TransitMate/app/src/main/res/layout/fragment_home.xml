@@ -8,8 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/homeTitle"
         android:layout_width="match_parent"
@@ -67,7 +65,6 @@
             android:textStyle="bold" />
 
 
-
     </RelativeLayout>
 
     <TextView
@@ -107,7 +104,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/halfstar" />
+            android:src="@drawable/fullstar" />
 
         <ImageView
             android:layout_width="24dp"
@@ -122,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
         android:gravity="center_horizontal"
-        android:text="3.5 star average rating over 41 reviews"
+        android:text="4 star average rating over 41 reviews"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -150,11 +147,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="31 passengers \n driven"
+                android:layout_marginTop="4dp"
+                android:gravity="center_horizontal"
+                android:text="31 passengers\ndriven"
                 android:textSize="12dp"
                 android:textStyle="italic"
-                android:layout_marginTop="4dp"
-                android:gravity="center_horizontal" />
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
 
         <!-- Person Icon -->
@@ -174,11 +172,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="49 trips as \n passenger"
-                android:textSize="12sp"
-                android:textStyle="italic"
                 android:layout_marginTop="4dp"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:text="49 trips as\npassenger"
+                android:textSize="12sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <!-- Car Icon -->
@@ -198,11 +196,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="14 trips \n as driver"
-                android:textSize="12sp"
-                android:textStyle="italic"
                 android:layout_marginTop="4dp"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:text="14 trips\nas driver"
+                android:textSize="12sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
     </LinearLayout>
@@ -216,14 +214,18 @@
 
         android:layout_marginTop="530dp">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
         <Button
             android:id="@+id/currentTripButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View current trip progress"
-            android:textSize="14sp"
-        android:layout_marginTop="3dp"
-        android:gravity="center_horizontal" />
+            android:layout_marginTop="3dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="View Current Trip Progress"
+            android:textSize="16sp" />
     </LinearLayout>
 
 <!--    <ImageButton-->
@@ -245,8 +247,9 @@
         android:layout_gravity="end|top"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
+        android:onClick="launchSettings"
         android:src="@drawable/settings2"
-        android:onClick="launchSettings"/>
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
     <!-- TODO: Link the button to the trip progress page -->

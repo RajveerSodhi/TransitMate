@@ -47,6 +47,11 @@ public class Messages extends Fragment implements SelectListener {
 
     @Override
     public void onItemClicked(ChatItem chatItem) {
-        startActivity(new Intent(this.getActivity(), ChatActivity.class));
+        Intent i = new Intent(this.getActivity(), ChatActivity.class);
+        Bundle info = new Bundle();
+        info.putString("Name", chatItem.name);
+        info.putString("ImgResource", chatItem.imgResource);
+        i.putExtras(info);
+        startActivity(i);
     }
 }
