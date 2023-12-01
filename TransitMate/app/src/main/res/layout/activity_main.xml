@@ -12,6 +12,7 @@
         android:id="@+id/flFragment"
         android:layout_width="414dp"
         android:layout_height="656dp"
+
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"

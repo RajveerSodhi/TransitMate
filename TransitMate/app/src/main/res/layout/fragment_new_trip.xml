@@ -2,10 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/flFragment"
+
     android:layout_height="match_parent"
     tools:context=".NewTrip">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/newTripTitle"
         android:layout_width="match_parent"
@@ -15,5 +18,41 @@
         android:text="Start New Trip"
         android:textSize="34sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/backImageButton"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="25dp"
+        android:onClick="back"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/tripSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:gravity="center_horizontal"
+        android:text="Do you need a hitch or are you driving?"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/passengerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Start trip as a passenger" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:text="Start trip as a driver" />
+
 
 </FrameLayout>
