@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/flFragment"
@@ -43,10 +44,10 @@
         android:id="@+id/ChoosePickup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-207dp"
+        android:layout_marginLeft="-135dp"
         android:layout_marginTop="206dp"
         android:gravity="center_horizontal"
-        android:text="Choose pickup location:"
+        android:text="Choose origin:"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -69,7 +70,7 @@
         android:layout_marginTop="195dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Enter pickup location" />
+        android:hint="Enter origin" />
 
 
     <EditText
@@ -145,25 +146,60 @@
 
 <!--    </LinearLayout>-->
 
-    <Button
-        android:id="@+id/idBtnPickDate"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="90dp"
-        android:text="Pick Date"
-        android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/idBtnPickTime"
-        android:layout_width="150dp"
+        android:id="@+id/searchDriversButton"
+        android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:text="Pick Time"
-        android:textAllCaps="false" />
+        android:layout_marginTop="220dp"
+        android:text="Search for drivers"
+        android:textAllCaps="true" />
+
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-125dp"
+        android:layout_marginTop="406dp"
+        android:gravity="center_horizontal"
+        android:text="Date of travel:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="396dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Choose Date" />
+
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-125dp"
+        android:layout_marginTop="456dp"
+        android:gravity="center_horizontal"
+        android:text="Time of travel:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="446dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Choose Time" />
 
 
 </FrameLayout>
