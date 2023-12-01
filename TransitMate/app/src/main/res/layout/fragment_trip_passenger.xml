@@ -2,12 +2,168 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/flFragment"
+
     android:layout_height="match_parent"
     tools:context=".NewTrip">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:id="@+id/newTripTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Start Trip"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/backImageButton"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="25dp"
+        android:onClick="back"
+        android:src="@drawable/back" />
+    <TextView
+        android:id="@+id/newTripSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:gravity="center_horizontal"
+        android:text="As passenger"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/ChoosePickup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-207dp"
+        android:layout_marginTop="206dp"
+        android:gravity="center_horizontal"
+        android:text="Choose pickup location:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ChooseDest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="306dp"
+        android:layout_marginLeft="-180dp"
+        android:gravity="center_horizontal"
+        android:text="Choose Destination:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="195dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Enter pickup location" />
+
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="296dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Enter destination" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home_icon"
+            android:layout_marginRight="20dp" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/work_icon"
+            android:layout_marginRight="20dp" />
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:src="@drawable/history_icon"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="360dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home_icon"
+            android:layout_marginRight="20dp" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/work_icon"
+            android:layout_marginRight="20dp" />
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:src="@drawable/history_icon"
+            android:layout_marginRight="20dp" />
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="406dp">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/ChooseDate"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Date:"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/idBtnPickDate"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp"
+        android:text="Pick Date"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/idBtnPickTime"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:text="Pick Time"
+        android:textAllCaps="false" />
 
 
 </FrameLayout>

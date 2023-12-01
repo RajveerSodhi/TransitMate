@@ -28,13 +28,30 @@ public class NewTrip extends Fragment {
         newTripTitle = (TextView) view.findViewById(R.id.newTripTitle);
 
         backButton = view.findViewById(R.id.backImageButton);
+        passengerButton=view.findViewById(R.id.passengerButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewTrip.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                Home homeFragment = new Home();
+
+                // Replace the current fragment with the Home fragment
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.flFragment, homeFragment);
+                transaction.addToBackStack(null);
+                transaction.commit(); //change the horizontal menu bar to show Home.
+            }
+        });
+
+        passengerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Call the new method to navigate to TripPassengerFragment
+                TripPassengerFragment tripPassengerFragment = new TripPassengerFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.flFragment, tripPassengerFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -42,13 +59,7 @@ public class NewTrip extends Fragment {
         return view;
     }
 
-//    private void launchHome() {
-//        Fragment homeFragment=new Home();
-//        FragmentTransaction tr=getActivity().getSupportFragmentManager().beginTransaction();
-//        tr.replace(R.id.home_fragment_container, homeFragment);
-//        tr.addToBackStack(null);
-//        tr.commit();
-//    }
-
 
 }
+
+
