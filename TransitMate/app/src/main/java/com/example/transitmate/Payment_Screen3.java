@@ -1,4 +1,4 @@
-package com.example.transitmate_paymentstep;
+package com.example.transitmate;
 
 import android.os.Bundle;
 
