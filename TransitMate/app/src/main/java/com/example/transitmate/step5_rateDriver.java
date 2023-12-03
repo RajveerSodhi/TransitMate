@@ -1,4 +1,4 @@
-package com.example.transitmate;
+package com.example.step5_ratedriver;
 
 import android.app.Activity;
 

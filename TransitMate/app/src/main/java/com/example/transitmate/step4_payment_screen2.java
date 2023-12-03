@@ -1,4 +1,4 @@
-package com.example.transitmate;
+package com.example.transit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
