@@ -15,5 +15,107 @@
         android:text="My Profile"
         android:textSize="34sp"
         android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/backImageButton"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="25dp"
+        android:onClick="back"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:text="Name:                   John Abraham"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/ageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="40dp"
+        android:text="Age:                       26"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/dobTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="40dp"
+        android:text="Date of birth:       12 June 1997"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/ppTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="40dp"
+        android:text="Profile Photo:"
+        android:textSize="20sp"
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imagecardview"
+        android:layout_width="143dp"
+        android:layout_height="161dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="195dp"
+
+        android:layout_weight="0"
+        android:layout_marginLeft="200dp">
+
+        <ImageView
+            android:id="@+id/imageViewJohn"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/john" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginLeft="40dp"
+        android:text="Default Address:    587 Oxford Ave, \n
+  Kelowna, BC \n                                  V1Y 7L4"
+        android:textSize="20sp"
+        />
+
+
+    <TextView
+        android:id="@+id/driverslicense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="470dp"
+        android:layout_marginLeft="40dp"
+        android:text="License Number:    BC-120******33"
+        android:textSize="20sp"
+        />
+
+
+    <TextView
+        android:id="@+id/ccNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="40dp"
+        android:text="Credit Card number:    AMEX 11*******4"
+        android:textSize="20sp"
+        />
+
+
 
 </FrameLayout>

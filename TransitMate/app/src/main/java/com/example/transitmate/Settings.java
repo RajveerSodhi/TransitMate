@@ -9,13 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Settings extends AppCompatActivity {
 
 
-    Button backButton;
+    ImageView backButton;
+    Button editButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        backButton=findViewById(R.id.button3);
+        backButton = findViewById(R.id.backImageButton);
+        editButton=findViewById(R.id.edit);
+
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,5 +29,14 @@ public class Settings extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Launch the Profile activity
+                Intent intent = new Intent(Settings.this, Profile.class);
+                startActivity(intent);
+            }
+        });
     }
-}
+    }
