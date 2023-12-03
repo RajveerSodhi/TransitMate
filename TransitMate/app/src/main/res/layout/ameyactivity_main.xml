@@ -10,19 +10,19 @@
     <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="414dp"
-        android:layout_height="656dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintVertical_bias="0.0">
 
         <RadioGroup
             android:layout_width="287dp"
-            android:layout_height="306dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="312dp">
+            android:layout_height="286dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="240dp">
 
             <RadioButton
                 android:id="@+id/radioButton"
@@ -70,43 +70,61 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="389dp"
-            android:layout_height="121dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="Choose Payment Method"
-            android:textSize="45sp" />
+            android:id="@+id/newTripTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:text="Choose payment method"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/backImageButton"
+            android:layout_width="30dp"
+            android:layout_height="27dp"
+
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="25dp"
+            android:onClick="back"
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="185dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="164dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="124dp"
+            android:gravity="center_horizontal"
             android:text="Trip price"
-            android:textSize="25sp" />
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="550dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Confirm payment"
+
+            android:textSize="16sp" />
     </FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="239dp"
         android:layout_height="73dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="220dp"
-        android:text="CAD 84.89"
+        android:layout_marginTop="160dp"
+        android:text="CA$ 84.89"
+        android:textStyle="bold"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
