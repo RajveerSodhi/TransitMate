@@ -2,6 +2,7 @@ package com.example.transitmate;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TimePicker;
 
 import androidx.fragment.app.Fragment;
@@ -25,10 +25,9 @@ public class TripPassengerFragment extends Fragment {
 
     private Calendar selectedDate;
     private int selectedHour, selectedMinute;
+    private Button searchDriversButton;
 
-    public TripPassengerFragment() {
-        // require an empty public constructor
-    }
+    public TripPassengerFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +35,14 @@ public class TripPassengerFragment extends Fragment {
 
         dateEditText = view.findViewById(R.id.editTextDate);
         timeEditText = view.findViewById(R.id.editTextTime);
+        searchDriversButton = (Button) view.findViewById(R.id.searchDriversButton);
+
+        searchDriversButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), selectDriverActivity.class));
+            }
+        });
 
         dateEditText.setOnClickListener(new View.OnClickListener() {
             @Override

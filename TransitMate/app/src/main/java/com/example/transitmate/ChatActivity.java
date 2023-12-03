@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +18,10 @@ public class ChatActivity extends AppCompatActivity {
     TextView textName, msg1, msg2, msg3;
     Bundle textInfo;
     Context context;
-    ImageButton backButton, sendButton;
+    ImageButton backButton, sendButton, declineButton, confirmButton;
     EditText msgBox;
     int msgCount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +32,19 @@ public class ChatActivity extends AppCompatActivity {
         textImg = (ImageView) findViewById(R.id.textImg);
         backButton = (ImageButton) findViewById(R.id.backButtonChat);
         sendButton = (ImageButton) findViewById(R.id.sendButton);
+        declineButton = (ImageButton) findViewById(R.id.declineB);
+        confirmButton = (ImageButton) findViewById(R.id.confirmB);
         msgBox = (EditText) findViewById(R.id.messageBox);
         msg1 = (TextView) findViewById(R.id.msg1);
         msg2 = (TextView) findViewById(R.id.msg2);
         msg3 = (TextView) findViewById(R.id.msg3);
         textInfo = getIntent().getExtras();
         msgCount = 0;
+
+        Intent backToMessages = new Intent(ChatActivity.this, MainActivity.class);
+        Bundle info = new Bundle();
+        info.putString("fragment", "messages");
+        backToMessages.putExtras(info);
 
         String name = textInfo.getString("Name", "No Name");
         String img = textInfo.getString("ImgResource", "profile_icon");
@@ -47,35 +56,57 @@ public class ChatActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToMessages = new Intent(ChatActivity.this, MainActivity.class);
-                Bundle info = new Bundle();
-                info.putString("fragment", "messages");
-                backToMessages.putExtras(info);
                 startActivity(backToMessages);
-
             }
         });
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                msgCount++;
                 String msg = msgBox.getText().toString();
-                if (msgCount == 1)  {
-                    msg1.setText(msg);
-                    msg1.setVisibility(View.VISIBLE);
+                if (msg.length() > 0) {
+                    msgCount++;
+                    if (msgCount == 1)  {
+                        msg1.setText(msg);
+                        msg1.setVisibility(View.VISIBLE);
+                    }
+                    else if (msgCount == 2) {
+                        msg2.setText(msg);
+                        msg2.setVisibility(View.VISIBLE);
+                    }
+                    else if (msgCount == 3) {
+                        msg3.setText(msg);
+                        msg3.setVisibility(View.VISIBLE);
+                    }
+                    msgBox.setText("");
                 }
-                else if (msgCount == 2) {
-                    msg2.setText(msg);
-                    msg2.setVisibility(View.VISIBLE);
+            }
+        });
+
+        declineButton.setOnClickListener(new View.OnClickListener() {
+            int removeIndex = -1;
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < Messages.chatNames.size(); i++) {
+                    if (name.equals(Messages.chatNames.get(i))) {
+                        removeIndex = i;
+                    }
                 }
-                else if (msgCount == 3) {
-                    msg3.setText(msg);
-                    msg3.setVisibility(View.VISIBLE);
-                }
-                msgBox.setText("");
+
+                Messages.chatList.remove(removeIndex);
+                Toast.makeText(context, "Driver Rejected", Toast.LENGTH_SHORT).show();
+                startActivity(backToMessages);
+            }
+        });
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: Add functionality to start trip with driver
+                Toast.makeText(context, "Driver Confirmed", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+
 }

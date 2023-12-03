@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:gravity="center_horizontal"
-        android:text="Ride in comfort."
+        android:text="Ride in Comfort"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -37,8 +37,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/imagecardview"
-            android:layout_width="143dp"
-            android:layout_height="161dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_centerHorizontal="true"
 
             android:layout_marginTop="165dp"
@@ -49,7 +49,7 @@
             <ImageView
                 android:id="@+id/imageViewJohn"
                 android:layout_width="match_parent"
-                android:layout_height="165dp"
+                android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/john" />
         </androidx.cardview.widget.CardView>
@@ -68,12 +68,12 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/subtitle2"
+        android:id="@+id/subtitleDriver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="330dp"
         android:gravity="center_horizontal"
-        android:text="Transit mate member since 2023"
+        android:text="TransitMate member since 2023"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
         android:layout_marginTop="370dp">
 
         <ImageView
-            android:layout_width="24dp"
+            android:layout_width="27dp"
             android:layout_height="24dp"
             android:src="@drawable/fullstar" />
 
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
-                android:text="31 passengers\ndriven"
+                android:text="31 Passengers\nDriven"
                 android:textSize="12dp"
                 android:textStyle="italic"
                 tools:ignore="TextSizeCheck" />
@@ -174,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
-                android:text="49 trips as\npassenger"
+                android:text="49 Trips as\nPassenger"
                 android:textSize="12sp"
                 android:textStyle="italic" />
         </LinearLayout>
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
-                android:text="14 trips\nas driver"
+                android:text="14 Trips\nas Driver"
                 android:textSize="12sp"
                 android:textStyle="italic" />
         </LinearLayout>
@@ -245,8 +245,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="end|top"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:onClick="launchSettings"
         android:src="@drawable/settings2"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

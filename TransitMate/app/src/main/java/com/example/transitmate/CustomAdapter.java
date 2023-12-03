@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +44,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             @Override
             public void onClick(View view) {
                 listener.onItemClicked(chatList.get(position));
+            }
+        });
+
+        holder.decline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Driver Rejected", Toast.LENGTH_SHORT).show();
+                chatList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, chatList.size());
+            }
+        });
+
+        holder.confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: Add functionality to start trip with driver
+                Toast.makeText(context, "Driver Confirmed", Toast.LENGTH_SHORT).show();
             }
         });
     }

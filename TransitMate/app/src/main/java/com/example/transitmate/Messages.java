@@ -15,7 +15,8 @@ import java.util.List;
 
 public class Messages extends Fragment implements SelectListener {
     RecyclerView recyclerView;
-    List<ChatItem> chatList;
+    static List<ChatItem> chatList = new ArrayList<>();
+    static List<String> chatNames = new ArrayList<>();
     CustomAdapter customAdapter;
 
     public Messages() {
@@ -35,11 +36,6 @@ public class Messages extends Fragment implements SelectListener {
     private void displayItems() {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this.getActivity(), 1));
-        chatList = new ArrayList<>();
-
-        chatList.add(new ChatItem("Rio Asher", "lenny"));
-        chatList.add(new ChatItem("Marlin Kutler", "marlin"));
-
         customAdapter = new CustomAdapter(this.getActivity(), chatList, this);
         recyclerView.setAdapter(customAdapter);
 
