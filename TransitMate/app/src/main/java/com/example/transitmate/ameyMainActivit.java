@@ -42,4 +42,3 @@ public class ameyMainActivit extends AppCompatActivity {
 //        return view;
 
     }
-}
