@@ -28,12 +28,9 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/imagecardview"
@@ -64,7 +61,6 @@
             android:textSize="24.5sp"
             android:textStyle="bold" />
 
-
     </RelativeLayout>
 
     <TextView
@@ -76,7 +72,6 @@
         android:text="TransitMate member since 2023"
         android:textSize="16sp"
         android:textStyle="bold" />
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -145,7 +140,7 @@
                 android:src="@drawable/group" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
@@ -170,7 +165,7 @@
                 android:src="@drawable/person" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
@@ -194,7 +189,7 @@
                 android:src="@drawable/car" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
@@ -225,7 +220,8 @@
             android:layout_marginTop="3dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="View Current Trip Progress"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
     </LinearLayout>
 
 <!--    <ImageButton-->
@@ -239,7 +235,6 @@
 <!--        android:background="@null"-->
 <!--        android:onClick="launchSettings"/>-->
 
-
     <ImageView
         android:id="@+id/imageButton"
         android:layout_width="30dp"
@@ -251,10 +246,6 @@
         android:src="@drawable/settings2"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-
     <!-- TODO: Link the button to the trip progress page -->
-
-
-
 
 </FrameLayout>

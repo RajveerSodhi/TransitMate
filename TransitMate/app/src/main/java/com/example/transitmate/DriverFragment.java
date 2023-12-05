@@ -1,79 +1,191 @@
 package com.example.transitmate;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.*;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 
-public class DriverFragment extends Fragment implements OnMapReadyCallback{
+public class DriverFragment extends Fragment{
 
-//    TextView newTripTitle;
+    ImageButton backButton, originHome, originWork, originLast, destHome, destWork, destLast;
+    Button submit;
+    String homeAddress, workAddress, lastAddress;
+    EditText origin, dest, date, time;
+    private Calendar selectedDate;
+    private int selectedHour, selectedMinute;
 
-    ImageView backButton;
-    GoogleMap gMap;
-
-    public DriverFragment(){
-        // require a empty public constructor
-    }
+    public DriverFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_driverprofile, container, false);
 
-//        newTripTitle = (TextView) view.findViewById(R.id.newTripTitle);
+        backButton = (ImageButton) view.findViewById(R.id.backImageButtonDriver);
+        submit = (Button) view.findViewById(R.id.submitTripButton);
+        originHome = (ImageButton) view.findViewById(R.id.originHome);
+        originWork = (ImageButton) view.findViewById(R.id.originWork);
+        originLast = (ImageButton) view.findViewById(R.id.originLast);
+        destHome = (ImageButton) view.findViewById(R.id.destHome);
+        destWork = (ImageButton) view.findViewById(R.id.destWork);
+        destLast = (ImageButton) view.findViewById(R.id.destLast);
+        origin = (EditText) view.findViewById(R.id.origin);
+        dest = (EditText) view.findViewById(R.id.dest);
+        date = (EditText) view.findViewById(R.id.editTextDate2);
+        time = (EditText) view.findViewById(R.id.editTextTime2);
 
-        backButton = view.findViewById(R.id.backImageButton);
-//        passengerButton=view.findViewById(R.id.passengerButton);
+        homeAddress = "935 Academy Way, Kelowna";
+        workAddress = "1255 International Mews, Kelowna";
+        lastAddress = "Queensway Exchange, Kelowna";
+
+        originHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                origin.setText(homeAddress);
+            }
+        });
+
+        originWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                origin.setText(workAddress);
+            }
+        });
+
+        originLast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                origin.setText(lastAddress);
+            }
+        });
+
+        destHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dest.setText(homeAddress);
+            }
+        });
+
+        destWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dest.setText(workAddress);
+            }
+        });
+
+        destLast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dest.setText(lastAddress);
+            }
+        });
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Home homeFragment = new Home();
-
-                // Replace the current fragment with the Home fragment
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.flFragment, homeFragment);
-                transaction.addToBackStack(null);
-                transaction.commit(); //change the horizontal menu bar to show Home.
+                Intent goToSNT = new Intent(getContext(), MainActivity.class);
+                Bundle info = new Bundle();
+                info.putString("fragment", "start_new_trip");
+                goToSNT.putExtras(info);
+                startActivity(goToSNT);
             }
         });
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Trip Posted to TransitMate", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
+        });
 
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialog();
+            }
+        });
 
         return view;
     }
-    public void onMapReady (GoogleMap googleMap) {
-        gMap = googleMap;
-        gMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(49.8801, -119.4402) , 11.5f) );
-        gMap.getUiSettings().setZoomControlsEnabled(true);
 
-        gMap.addMarker(new MarkerOptions().position(new LatLng(49.8801, -119.4402)));
-        gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            public boolean onMarkerClick (Marker marker) {
-                if (marker.getPosition().latitude == 49.8801) marker.setTitle("Kelowna");
-                return false;
-            }
-        });
+    private void showDatePickerDialog() {
+        final Calendar currentDate = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                requireContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        selectedDate = Calendar.getInstance();
+                        selectedDate.set(Calendar.YEAR, year);
+                        selectedDate.set(Calendar.MONTH, month);
+                        selectedDate.set(Calendar.DAY_OF_MONTH, day);
+
+                        updateDateEditText();
+                    }
+                },
+                currentDate.get(Calendar.YEAR),
+                currentDate.get(Calendar.MONTH),
+                currentDate.get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
     }
 
+    private void showTimePickerDialog() {
+        final Calendar currentTime = Calendar.getInstance();
+        int currentHour = currentTime.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = currentTime.get(Calendar.MINUTE);
 
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                requireContext(),
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+                        selectedHour = hourOfDay;
+                        selectedMinute = minute;
+
+                        updateTimeEditText();
+                    }
+                },
+                currentHour,
+                currentMinute,
+                false // 24-hour format
+        );
+        timePickerDialog.show();
+    }
+
+    private void updateDateEditText() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+        date.setText(sdf.format(selectedDate.getTime()));
+    }
+
+    private void updateTimeEditText() {
+        String timeFormat = String.format(Locale.US, "%02d:%02d", selectedHour, selectedMinute);
+        time.setText(timeFormat);
+    }
 }
 
 

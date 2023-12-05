@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         .replace(R.id.flFragment, messages)
                         .commit();
             }
+            else if (selectFragment.equals("start_new_trip")) {
+                bottomNavigationView.setSelectedItemId(R.id.new_trip);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, newTrip)
+                        .commit();
+            }
         }
 
     }

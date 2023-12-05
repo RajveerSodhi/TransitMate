@@ -6,12 +6,14 @@
     android:layout_height="match_parent">
 
 
-
     <Button
         android:id="@+id/button2"
-        android:layout_width="218dp"
-        android:layout_height="56dp"
-        android:text="         Submit app feedback"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Submit App Feedback"
+        android:textSize="16sp"
+        app:icon="@drawable/feedback2"
+        app:iconSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,49 +36,26 @@
 
     <Button
         android:id="@+id/edit"
-        android:layout_width="218dp"
-        android:layout_height="61dp"
-        android:text="   Edit user profile"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Edit User Profile"
+        android:textSize="16sp"
+        app:icon="@drawable/edit"
+        app:iconSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="27dp"
-        android:layout_height="29dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.319"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268"
-        app:srcCompat="@drawable/edit" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="27dp"
-        android:layout_height="29dp"
-        android:background="#80000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391"
-        app:srcCompat="@drawable/feedback2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
+    <ImageButton
         android:id="@+id/backImageButton"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
 
+        android:background="#00FFFFFF"
         android:onClick="back"
-        android:src="@drawable/back"
+        android:src="@drawable/arrow_back_ios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"

@@ -4,12 +4,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,12 +26,14 @@ public class selectDriverActivity extends AppCompatActivity {
     TextView driverReviews, subtitleDriver, driverName, passDriven, tripsDriver, startLocText, endLocText, dateTimeText, carTypeText, seatsText, costText, homeLocText, genderText, musicText, talksText, occupationText, i1, i2, i3, i4, i5, q1, q2, a1, a2, bio, purposeOfTravel;
     ImageView driverImageView;
     DriverProfile[] drivers;
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_driver);
 
+        back = (ImageButton) findViewById(R.id.backButtonSelectDriver);
         driverImageView = (ImageView) findViewById(R.id.driverImageView);
         driverReviews = (TextView) findViewById(R.id.driverReviews);
         subtitleDriver = (TextView) findViewById(R.id.subtitleDriver);
@@ -61,6 +64,17 @@ public class selectDriverActivity extends AppCompatActivity {
         purposeOfTravel = (TextView) findViewById(R.id.purposeOfTrip);
         context = this.getApplicationContext();
         i = 0;
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToPassenger = new Intent(selectDriverActivity.this, MainActivity.class);
+                Bundle info = new Bundle();
+                info.putString("fragment", "start_new_trip");
+                backToPassenger.putExtras(info);
+                startActivity(backToPassenger);
+            }
+        });
 
         d1 = new DriverProfile(
                 "Rio Asher",
@@ -117,7 +131,7 @@ public class selectDriverActivity extends AppCompatActivity {
                 "Kareoke",
                 "2021",
                 "Software Engineer at Google",
-                5,
+                4,
                 67,
                 80,
                 89,

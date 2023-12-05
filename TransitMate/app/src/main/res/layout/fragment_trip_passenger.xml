@@ -2,150 +2,150 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/flFragment"
+    android:layout_width="match_parent"
 
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="16dp"
     tools:context=".NewTrip">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/newTripTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="Start Trip"
         android:textSize="34sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/backImageButton"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
-
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="25dp"
+    <ImageButton
+        android:id="@+id/backImageButtonPassenger"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="#00FFFFFF"
         android:onClick="back"
-        android:src="@drawable/back" />
+        android:src="@drawable/arrow_back_ios"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
     <TextView
         android:id="@+id/newTripSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:gravity="center_horizontal"
-        android:text="As passenger"
+        android:text="As Passenger"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-
     <TextView
         android:id="@+id/ChoosePickup"
-        android:layout_width="match_parent"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-135dp"
         android:layout_marginTop="206dp"
-        android:gravity="center_horizontal"
-        android:text="Choose origin:"
-        android:textSize="18dp"
+        android:gravity="clip_vertical"
+        android:text="Select Origin:"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/ChooseDest"
-        android:layout_width="match_parent"
+        android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="306dp"
-        android:layout_marginLeft="-180dp"
-        android:gravity="center_horizontal"
-        android:text="Choose Destination:"
-        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:text="Select Destination:"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextText1"
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/originSearch"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="205dp"
         android:layout_marginTop="195dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Enter origin" />
+        android:queryHint="Select Origin" />
 
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/destinationSearch"
+        android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="205dp"
         android:layout_marginTop="296dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Enter destination" />
+        android:queryHint="Select Destination" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/originHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00FFFFFF"
             android:src="@drawable/home_icon"
-            android:layout_marginRight="20dp" />
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/originWork"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="#00FFFFFF"
             android:src="@drawable/work_icon"
-            android:layout_marginRight="20dp" />
-        <ImageView
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:src="@drawable/history_icon"
-            android:layout_marginRight="20dp" />
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/originLast"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/history"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="360dp">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        android:layout_marginTop="355dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/destHome"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00FFFFFF"
             android:src="@drawable/home_icon"
-            android:layout_marginRight="20dp" />
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/destWork"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="#00FFFFFF"
             android:src="@drawable/work_icon"
-            android:layout_marginRight="20dp" />
-        <ImageView
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:src="@drawable/history_icon"
-            android:layout_marginRight="20dp" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/destLast"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/history"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:layout_marginTop="406dp">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/ChooseDate"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Date:"-->
-<!--            android:textSize="18dp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--    </LinearLayout>-->
-
 
     <Button
         android:id="@+id/searchDriversButton"
@@ -154,19 +154,18 @@
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginTop="220dp"
-        android:text="Search for drivers"
-        android:textAllCaps="true" />
-
+        android:text="Search for Drivers"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="match_parent"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-125dp"
-        android:layout_marginTop="406dp"
-        android:gravity="center_horizontal"
-        android:text="Date of travel:"
-        android:textSize="18dp"
+        android:layout_marginTop="410dp"
+        android:gravity="center_vertical"
+        android:text="Date of Travel:"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
@@ -174,21 +173,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="205dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="400dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Choose Date" />
-
+        android:hint="Choose Date"
+        android:cursorVisible="false"
+        android:focusableInTouchMode="false"
+        android:inputType="date"
+        android:minHeight="48dp" />
 
     <TextView
         android:id="@+id/timeText"
-        android:layout_width="match_parent"
+        android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-125dp"
-        android:layout_marginTop="456dp"
-        android:gravity="center_horizontal"
-        android:text="Time of travel:"
-        android:textSize="18dp"
+        android:layout_marginTop="466dp"
+        android:gravity="center_vertical"
+        android:text="Time of Travel:"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
@@ -196,10 +196,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="205dp"
-        android:layout_marginTop="446dp"
+        android:layout_marginTop="456dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Choose Time" />
-
+        android:hint="Choose Time"
+        android:cursorVisible="false"
+        android:focusableInTouchMode="false"
+        android:inputType="time"
+        android:minHeight="48dp" />
 
 </FrameLayout>

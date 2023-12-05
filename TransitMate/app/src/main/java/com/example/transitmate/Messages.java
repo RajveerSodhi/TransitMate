@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,6 +30,8 @@ public class Messages extends Fragment implements SelectListener {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         displayItems();
+        if (recyclerView.getAdapter().getItemCount() == 0)
+            Toast.makeText(getContext(), "No Drivers Selected", Toast.LENGTH_SHORT).show();
 
         return view;
     }
