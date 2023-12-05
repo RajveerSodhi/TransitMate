@@ -168,12 +168,12 @@ public class TripPassengerFragment extends Fragment {
                 if (originLocation != null) {
                     try {
                         originAddressList = originGeocoder.getFromLocationName(originLocation, 1);
+                        Address originAddress = originAddressList.get(0);
+                        originLatLng = new LatLng(originAddress.getLatitude(), originAddress.getLongitude());
+                        String actualOriginAddress = originAddress.getAddressLine(0);
+                        originSearch.setQuery(actualOriginAddress, false);
+                        Toast.makeText(getContext(), "Origin set to " + actualOriginAddress, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) { e.printStackTrace(); }
-                    Address originAddress = originAddressList.get(0);
-                    originLatLng = new LatLng(originAddress.getLatitude(), originAddress.getLongitude());
-                    String actualOriginAddress = originAddress.getAddressLine(0);
-                    originSearch.setQuery(actualOriginAddress, false);
-                    Toast.makeText(getContext(), "Origin set to " + actualOriginAddress, Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
@@ -191,12 +191,12 @@ public class TripPassengerFragment extends Fragment {
                 if (destLocation != null) {
                     try {
                         destAddressList = destGeocoder.getFromLocationName(destLocation, 1);
+                        Address destAddress = destAddressList.get(0);
+                        destinationLatLng = new LatLng(destAddress.getLatitude(), destAddress.getLongitude());
+                        String actualDestAddress = destAddress.getAddressLine(0);
+                        destinationSearch.setQuery(actualDestAddress, false);
+                        Toast.makeText(getContext(), "Destination set to " + actualDestAddress, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) { e.printStackTrace(); }
-                    Address destAddress = destAddressList.get(0);
-                    destinationLatLng = new LatLng(destAddress.getLatitude(), destAddress.getLongitude());
-                    String actualDestAddress = destAddress.getAddressLine(0);
-                    destinationSearch.setQuery(actualDestAddress, false);
-                    Toast.makeText(getContext(), "Destination set to " + actualDestAddress, Toast.LENGTH_SHORT).show();
                 }
 
                 return false;
@@ -224,7 +224,7 @@ public class TripPassengerFragment extends Fragment {
         searchDriversButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), selectDriverActivity.class));
+                if (formCompleted()) startActivity(new Intent(getContext(), selectDriverActivity.class));
             }
         });
 
@@ -297,5 +297,15 @@ public class TripPassengerFragment extends Fragment {
     private void updateTimeEditText() {
         String timeFormat = String.format(Locale.US, "%02d:%02d", selectedHour, selectedMinute);
         timeEditText.setText(timeFormat);
+    }
+
+    private boolean formCompleted() {
+        boolean formCompleted = false;
+        if (originLatLng == null) Toast.makeText(getContext(), "Please Enter an Origin", Toast.LENGTH_SHORT).show();
+        else if (destinationLatLng == null) Toast.makeText(getContext(), "Please Enter a Destination", Toast.LENGTH_SHORT).show();
+        else if (dateEditText.getText().toString().length() < 1) Toast.makeText(getContext(), "Please Enter a Date of Travel", Toast.LENGTH_SHORT).show();
+        else if (timeEditText.getText().toString().length() < 1) Toast.makeText(getContext(), "Please Enter a Time of Travel", Toast.LENGTH_SHORT).show();
+        else formCompleted = true;
+        return formCompleted;
     }
 }

@@ -1,31 +1,19 @@
 package com.example.transitmate;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class ameyMainActivit extends AppCompatActivity {
     ImageView backButton;
 
 
-    public ameyMainActivit(){
-        // require a empty public constructor
-    }
+    public ameyMainActivit() {}
 
 
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.ameyactivity_main, container, false);
+//        View view = inflater.inflate(R.layout.payment_method_layout.xml, container, false);
 //
 //        backButton = view.findViewById(R.id.backImageButton);
 //

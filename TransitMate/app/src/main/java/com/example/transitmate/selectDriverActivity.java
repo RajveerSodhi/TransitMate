@@ -126,9 +126,9 @@ public class selectDriverActivity extends AppCompatActivity {
                 "I would love to live in a farmhouse surrounded by animals. I love RDJ's house!",
                 "Cooking",
                 "Painting",
-                "Rock Music",
-                "Bollywood",
-                "Kareoke",
+                "Films",
+                "Birds",
+                "Cats",
                 "2021",
                 "Software Engineer at Google",
                 4,
@@ -157,7 +157,7 @@ public class selectDriverActivity extends AppCompatActivity {
                 "Who is your favourite celebrity?",
                 "Taylor Swift moves me.",
                 "Singing",
-                "Long Drives",
+                "Drives",
                 "Cooking",
                 "Soccer",
                 "Piano",
@@ -206,8 +206,14 @@ public class selectDriverActivity extends AppCompatActivity {
                         }
                         else  {
                             Toast.makeText(this, "Driver Selected", Toast.LENGTH_SHORT).show();
-                            if (!Messages.chatNames.contains(drivers[i].name)) {
-                                ChatItem newDriver = new ChatItem(drivers[i].name, drivers[i].imgRes);
+                            DriverProfile D = drivers[i];
+                            if (!Messages.chatNames.contains(D.name)) {
+                                ChatItem newDriver = new ChatItem(D.name,
+                                        D.imgRes,
+                                        D.tripStart,
+                                        D.tripEnd,
+                                        D.tripDate+", "+D.tripTime,
+                                        D.seatPrice);
                                 Messages.chatList.add(newDriver);
                                 Messages.chatNames.add(newDriver.getName());
                             }
@@ -302,8 +308,13 @@ public class selectDriverActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent messageDriver = new Intent(selectDriverActivity.this, ChatActivity.class);
                     Bundle info = new Bundle();
-                    info.putString("Name", drivers[i].name);
-                    info.putString("ImgResource", drivers[i].imgRes);
+                    DriverProfile D = drivers[i];
+                    info.putString("Name", D.name);
+                    info.putString("ImgResource", D.imgRes);
+                    info.putString("Origin", D.tripStart);
+                    info.putString("Destination", D.tripEnd);
+                    info.putString("Date and Time", D.tripDate + ", " + D.tripTime);
+                    info.putFloat("Cost", (float) (D.seatPrice*1.05));
                     messageDriver.putExtras(info);
                     startActivity(messageDriver);
                 }

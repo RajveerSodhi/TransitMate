@@ -16,17 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="348dp"
-        android:layout_height="314dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="108dp"
-        android:gravity="center_horizontal"
-        android:text="You will be Charged \nCA$ 84.89"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="348dp"
+            android:layout_height="314dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="108dp"
+            android:gravity="center_horizontal"
+            android:text="You will be Charged\nCAD 84.89"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"

@@ -12,10 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TransitMate"
         tools:targetApi="31">
+        <activity
+            android:name=".RateTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TripProgressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmTripActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCGzZ4JWj8C2SMqGkvkuCpbZiIj0lzM9QY" >
-        </meta-data>
+            android:value="AIzaSyCGzZ4JWj8C2SMqGkvkuCpbZiIj0lzM9QY" />
+
         <activity
             android:name=".selectDriverActivity"
             android:exported="false" />

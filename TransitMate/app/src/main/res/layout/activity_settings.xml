@@ -20,33 +20,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.384" />
 
+
     <TextView
         android:id="@+id/settingsTitle"
-        android:layout_width="171dp"
-        android:layout_height="47dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
         android:gravity="center_horizontal"
         android:text="Settings"
-        android:textSize="30sp"
+        android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/edit"
         android:layout_width="250dp"
         android:layout_height="60dp"
+        android:layout_marginTop="24dp"
         android:text="Edit User Profile"
         android:textSize="16sp"
         app:icon="@drawable/edit"
         app:iconSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <ImageButton
         android:id="@+id/backImageButton"
@@ -58,10 +57,24 @@
         android:src="@drawable/arrow_back_ios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/troubleshoot"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:text="Troubleshoot"
+        android:textSize="16sp"
+        app:icon="@drawable/troubleshoot_icon"
+        app:iconSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

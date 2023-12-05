@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class DriverFragment extends Fragment{
+public class DriverFragment extends Fragment {
 
     ImageButton backButton, originHome, originWork, originLast, destHome, destWork, destLast;
     Button submit;

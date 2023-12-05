@@ -102,8 +102,16 @@ public class ChatActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Add functionality to start trip with driver
-                Toast.makeText(context, "Driver Confirmed", Toast.LENGTH_SHORT).show();
+                Intent confirmDriver = new Intent(ChatActivity.this, ConfirmTripActivity.class);
+                Bundle driverInfo = new Bundle();
+                driverInfo.putString("name", name);
+                driverInfo.putString("pickup", textInfo.getString("Origin"));
+                driverInfo.putString("drop", textInfo.getString("Destination"));
+                driverInfo.putString("dandt", textInfo.getString("Date and Time"));
+                driverInfo.putFloat("cost", textInfo.getFloat("Cost"));
+                confirmDriver.putExtras(driverInfo);
+                startActivity(confirmDriver);
+
             }
         });
 

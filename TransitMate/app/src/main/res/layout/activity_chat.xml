@@ -186,7 +186,8 @@
             android:layout_height="50dp"
             android:layout_weight="0"
             android:background="#FFFFFF"
-            app:srcCompat="@drawable/send_icon" />
+            app:srcCompat="@drawable/send_icon"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

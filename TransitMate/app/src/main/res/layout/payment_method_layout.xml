@@ -21,44 +21,46 @@
         <RadioGroup
             android:layout_width="287dp"
             android:layout_height="286dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="240dp">
 
             <RadioButton
                 android:id="@+id/radioButton"
-                android:layout_width="154dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Google Pay" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Apple Pay" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Credit Card" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Debit Card (ending in 3016)" />
 
             <RadioButton
                 android:id="@+id/radioButton5"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Interac" />
 
             <RadioButton
                 android:id="@+id/radioButton6"
-                android:layout_width="202dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Paypal" />
+                android:minHeight="48dp"
+                android:text="Paypal"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/button2"
@@ -73,21 +75,11 @@
             android:id="@+id/newTripTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:text="Choose payment method"
-            android:textSize="32sp"
+            android:text="Choose Payment Method"
+            android:textSize="34sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/backImageButton"
-            android:layout_width="30dp"
-            android:layout_height="27dp"
-
-            android:layout_marginLeft="14dp"
-            android:layout_marginTop="25dp"
-            android:onClick="back"
-            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/textView2"
@@ -95,23 +87,30 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:layout_marginTop="124dp"
-            android:gravity="center_horizontal"
-            android:text="Trip price"
+            android:gravity="center|center_horizontal"
+            android:text="Trip Price"
             android:textSize="26sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/paymentButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="110dp"
             android:layout_marginTop="550dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="Confirm payment"
 
             android:textSize="16sp" />
-    </FrameLayout>
 
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="600dp"
+            android:text="Go Back" />
+    </FrameLayout>
 
 
     <TextView
@@ -119,10 +118,11 @@
         android:layout_width="239dp"
         android:layout_height="73dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="160dp"
-        android:text="CA$ 84.89"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="CAD 84.89"
+        android:textSize="34sp"
         android:textStyle="bold"
-        android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

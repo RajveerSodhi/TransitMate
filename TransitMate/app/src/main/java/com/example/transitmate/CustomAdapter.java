@@ -1,6 +1,9 @@
 package com.example.transitmate;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +38,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.chatName.setText(chatList.get(position).getName());
         int id = context.getResources().getIdentifier("drawable/" + (chatList.get(position).getImgResource()), null, context.getPackageName());
         holder.chatImg.setImageResource(id);
+
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +64,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Add functionality to start trip with driver
-                Toast.makeText(context, "Driver Confirmed", Toast.LENGTH_SHORT).show();
+                Intent confirm = new Intent(context, ConfirmTripActivity.class);
+                Bundle driverInfo = new Bundle();
+                driverInfo.putString("name", chatList.get(position).getName());
+                driverInfo.putString("pickup", chatList.get(position).pickup);
+                driverInfo.putString("drop", chatList.get(position).dest);
+                driverInfo.putString("dandt", chatList.get(position).dandt);
+                driverInfo.putFloat("cost", (float) (chatList.get(position).cost*1.05));
+                confirm.putExtras(driverInfo);
+                context.startActivity(confirm);
             }
         });
     }

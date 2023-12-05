@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment;
 
 public class Profile extends Fragment {
 
-    public Profile(){
-        // require a empty public constructor
-    }
+    public Profile(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
