@@ -69,10 +69,10 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         confirm = (Button) findViewById(R.id.confirm);
 
         driverInfo = getIntent().getExtras();
-        pickup.setText(driverInfo.getString("pickup"));
-        dest.setText(driverInfo.getString("dest"));
+        pickup.setText(TripPassengerFragment.originSearch.getQuery().toString());
+        dest.setText(TripPassengerFragment.destinationSearch.getQuery().toString());
         name.setText(driverInfo.getString("name"));
-        dandt.setText(driverInfo.getString("dandt"));
+        dandt.setText(TripPassengerFragment.dateEditText.getText().toString());
         cost.setText("CAD " + driverInfo.getString("cost"));
 
         // TODO: edit map

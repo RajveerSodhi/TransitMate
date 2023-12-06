@@ -30,9 +30,9 @@ import java.util.Locale;
 public class TripPassengerFragment extends Fragment {
 
     public static LatLng originLatLng, destinationLatLng;
-    private SearchView originSearch, destinationSearch;
-    private EditText dateEditText;
-    private EditText timeEditText;
+    public static SearchView originSearch, destinationSearch;
+    public static EditText dateEditText;
+    public static EditText timeEditText;
 
     private Calendar selectedDate;
     private int selectedHour, selectedMinute;
