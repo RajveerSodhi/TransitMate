@@ -2,7 +2,9 @@ package com.example.transitmate;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.*;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.View;
@@ -113,7 +115,7 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         gmap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
 
         String directionsUrl = "https://maps.googleapis.com/maps/api/directions/json" +
-                "?origin=" + OL +"&destination=" + DL + "&key=AIzaSyCGzZ4JWj8C2SMqGkvkuCpbZiIj0lzM9QY";
+                "?origin=" + OL.latitude+","+OL.longitude +"&destination=" + DL.latitude+","+DL.longitude + "&key=AIzaSyCGzZ4JWj8C2SMqGkvkuCpbZiIj0lzM9QY";
         new FetchDirectionsTask().execute(directionsUrl);
     }
     private class FetchDirectionsTask extends AsyncTask<String, Void, String> {
@@ -142,6 +144,7 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         @Override
         protected void onPostExecute(String directionsData) {
             if (directionsData != null) {
+                Log.d("DirectionsData", directionsData);
                 drawRoute(directionsData);
             }
         }
@@ -156,10 +159,16 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
                 JSONObject overviewPolyline = route.getJSONObject("overview_polyline");
                 String encodedPolyline = overviewPolyline.getString("points");
                 List<LatLng> decodedPolyline = PolyUtil.decode(encodedPolyline);
-                PolylineOptions options = new PolylineOptions().addAll(PolyUtil.decode(encodedPolyline));
+                PolylineOptions options = new PolylineOptions()
+                        .addAll(PolyUtil.decode(encodedPolyline))
+                        .color(Color.BLUE)  // Set a color
+                        .width(10);         // Set a width
+                routePolyline = gmap.addPolyline(options);
+
                 routePolyline = gmap.addPolyline(options);
                 for (LatLng point : decodedPolyline) {
                     Log.d("PolylinePoint", "Lat: " + point.latitude + ", Lng: " + point.longitude);
+                    Log.d("Polyline", "Number of points: " + decodedPolyline.size());
                 }
 
                 // Move camera to show both markers and the route
@@ -170,7 +179,7 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
                     builder.include(point);
                 }
                 LatLngBounds bounds = builder.build();
-                gmap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
+                gmap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 200));
 
             }
         } catch (Exception e) {
@@ -204,4 +213,3 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
     }
 }
 
-}
