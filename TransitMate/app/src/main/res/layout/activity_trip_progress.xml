@@ -19,13 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33">
 
-        <fragment
+
+        <com.google.android.gms.maps.MapView
             android:id="@+id/mapProgress"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            tools:context=".MapsActivity" />
+            android:layout_marginBottom="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="54 min"
+                    android:text="1hr52min"
                     android:textSize="20sp" />
 
                 <TextView
@@ -71,7 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="41.2 km"
+                    android:text="151 km"
                     android:textSize="20sp" />
 
                 <TextView
@@ -283,6 +282,8 @@
             android:layout_height="wrap_content"
             android:text="Inclusive of Taxes"
             android:textAlignment="viewEnd" />
+
+
     </LinearLayout>
 
     <TextView
@@ -313,7 +314,7 @@
         android:id="@+id/rateButton"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="25dp"
         android:text="Rate Your Trip"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
