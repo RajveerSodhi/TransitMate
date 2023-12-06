@@ -17,7 +17,6 @@ public class step4_payment_screen2 extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Open the NextActivity upon clicking the Submit button
                 Intent intent = new Intent(step4_payment_screen2.this, step4_payment_screen3.class);
                 startActivity(intent);
             }
@@ -27,7 +26,6 @@ public class step4_payment_screen2 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Open the NextActivity upon clicking the Submit button
                 Intent intent = new Intent(step4_payment_screen2.this, MainActivity.class);
                 startActivity(intent);
             }

@@ -34,7 +34,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
         return new CustomViewHolder(v);
 
-//        return new CustomViewHolder(LayoutInflater.from(context).inflate(R.layout.messages_list_item, parent, false));
     }
 
     @Override

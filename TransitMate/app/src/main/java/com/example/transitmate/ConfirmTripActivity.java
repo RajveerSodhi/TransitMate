@@ -57,14 +57,6 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         mapView = (MapView) findViewById(R.id.mapConfirm);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
-//        mapView.getMapAsync(new OnMapReadyCallback() {
-//            @Override
-//            public void onMapReady(@NonNull GoogleMap googleMap) {
-//                gmap = googleMap;
-//                startMap();
-//            }
-//        });
-
         confirmBack = (ImageButton) findViewById(R.id.confirmBack);
         confirm = (Button) findViewById(R.id.confirm);
 
@@ -75,7 +67,6 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         dandt.setText(TripPassengerFragment.dateEditText.getText().toString());
         cost.setText("CAD " + driverInfo.getString("cost"));
 
-        // TODO: edit map
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,14 +91,14 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
 
 
     }
+
+    //CODE REFERRED FROM https://www.digitalocean.com/community/tutorials/android-google-map-drawing-route-two-points
+    // ALSO HELP WAS TAKEN FROM https://developers.google.com/maps/documentation/android-sdk/polygon-tutorial API DEVELOPMENT KIT
+
     public void onMapReady(GoogleMap googleMap) {
         gmap = googleMap;
-
-        // Add markers for origin and destination
         originMarker = gmap.addMarker(new MarkerOptions().position(OL).title("Origin"));
         destMarker = gmap.addMarker(new MarkerOptions().position(DL).title("Destination"));
-
-        // Move camera to show both markers
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         builder.include(originMarker.getPosition());
         builder.include(destMarker.getPosition());
@@ -119,7 +110,6 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
         new FetchDirectionsTask().execute(directionsUrl);
     }
     private class FetchDirectionsTask extends AsyncTask<String, Void, String> {
-//        @SuppressLint("StaticFieldLeak")
         @Override
         protected String doInBackground(String... urls) {
             try {
@@ -161,8 +151,8 @@ public class ConfirmTripActivity extends AppCompatActivity implements OnMapReady
                 List<LatLng> decodedPolyline = PolyUtil.decode(encodedPolyline);
                 PolylineOptions options = new PolylineOptions()
                         .addAll(PolyUtil.decode(encodedPolyline))
-                        .color(Color.BLUE)  // Set a color
-                        .width(10);         // Set a width
+                        .color(Color.BLUE)
+                        .width(10);
                 routePolyline = gmap.addPolyline(options);
 
                 routePolyline = gmap.addPolyline(options);
