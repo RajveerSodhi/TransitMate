@@ -284,7 +284,7 @@ public class TripPassengerFragment extends Fragment {
                 },
                 currentHour,
                 currentMinute,
-                false // 24-hour format
+                false
         );
         timePickerDialog.show();
     }

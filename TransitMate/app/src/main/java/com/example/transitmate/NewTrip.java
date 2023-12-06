@@ -44,12 +44,10 @@ public class NewTrip extends Fragment {
             @Override
             public void onClick(View view) {
                 DriverFragment dr = new DriverFragment();
-
-                // Replace the current fragment with the Home fragment
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.flFragment, dr);
                 transaction.addToBackStack(null);
-                transaction.commit(); //change the horizontal menu bar to show Home.
+                transaction.commit();
             }
         });
 

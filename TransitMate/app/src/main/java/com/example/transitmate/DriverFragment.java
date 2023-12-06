@@ -30,7 +30,6 @@ public class DriverFragment extends Fragment {
     private Calendar selectedDate;
     private int selectedHour, selectedMinute;
 
-    // TODO: do not let user press submit unless all info is added, similar to passenger fragment
 
     public DriverFragment() {}
 
@@ -176,7 +175,7 @@ public class DriverFragment extends Fragment {
                 },
                 currentHour,
                 currentMinute,
-                false // 24-hour format
+                false
         );
         timePickerDialog.show();
     }
