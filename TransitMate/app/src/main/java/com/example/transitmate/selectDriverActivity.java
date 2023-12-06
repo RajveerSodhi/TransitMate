@@ -213,9 +213,9 @@ public class selectDriverActivity extends AppCompatActivity {
                                         D.tripStart,
                                         D.tripEnd,
                                         D.tripDate+", "+D.tripTime,
-                                        D.seatPrice);
+                                        String.valueOf((float) (D.seatPrice*1.05)));
                                 Messages.chatList.add(newDriver);
-                                Messages.chatNames.add(newDriver.getName());
+                                Messages.chatNames.add(newDriver.name);
                             }
                             showCustomDialog(i);
                         }
@@ -312,9 +312,9 @@ public class selectDriverActivity extends AppCompatActivity {
                     info.putString("Name", D.name);
                     info.putString("ImgResource", D.imgRes);
                     info.putString("Origin", D.tripStart);
-                    info.putString("Destination", D.tripEnd);
-                    info.putString("Date and Time", D.tripDate + ", " + D.tripTime);
-                    info.putFloat("Cost", (float) (D.seatPrice*1.05));
+                    info.putString("Dest", D.tripEnd);
+                    info.putString("DandT", D.tripDate + ", " + D.tripTime);
+                    info.putString("Cost", String.valueOf((float) (D.seatPrice*1.05)));
                     messageDriver.putExtras(info);
                     startActivity(messageDriver);
                 }

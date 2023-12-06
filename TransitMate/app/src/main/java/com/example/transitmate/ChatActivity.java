@@ -48,6 +48,11 @@ public class ChatActivity extends AppCompatActivity {
 
         String name = textInfo.getString("Name", "No Name");
         String img = textInfo.getString("ImgResource", "profile_icon");
+        String pickup = textInfo.getString("Origin");
+        String dest = textInfo.getString("Dest");
+        String dandt = textInfo.getString("DandT");
+        String cost = textInfo.getString("Cost");
+
         context = this.getApplicationContext();
 
         textName.setText(name);
@@ -105,10 +110,10 @@ public class ChatActivity extends AppCompatActivity {
                 Intent confirmDriver = new Intent(ChatActivity.this, ConfirmTripActivity.class);
                 Bundle driverInfo = new Bundle();
                 driverInfo.putString("name", name);
-                driverInfo.putString("pickup", textInfo.getString("Origin"));
-                driverInfo.putString("drop", textInfo.getString("Destination"));
-                driverInfo.putString("dandt", textInfo.getString("Date and Time"));
-                driverInfo.putFloat("cost", textInfo.getFloat("Cost"));
+                driverInfo.putString("pickup",pickup);
+                driverInfo.putString("dest", dest);
+                driverInfo.putString("dandt", dandt);
+                driverInfo.putString("cost", cost);
                 confirmDriver.putExtras(driverInfo);
                 startActivity(confirmDriver);
 

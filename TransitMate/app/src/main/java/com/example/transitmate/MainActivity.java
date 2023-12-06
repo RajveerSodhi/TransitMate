@@ -11,7 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
-    Bundle fragmentSelector;
+    static Bundle bundle;
     String selectFragment;
 
     @Override
@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        fragmentSelector = getIntent().getExtras();
+        bundle = getIntent().getExtras();
 
-        if (fragmentSelector != null) {
-            selectFragment = fragmentSelector.getString("fragment", "home");
+        if (bundle != null) {
+            selectFragment = bundle.getString("fragment", "home");
             if (selectFragment.equals("messages")) {
                 bottomNavigationView.setSelectedItemId(R.id.messages);
                 getSupportFragmentManager()

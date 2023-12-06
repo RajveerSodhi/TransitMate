@@ -55,11 +55,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/rateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="How would you rate Rio?"
+            android:text="How would you rate Rio Asher?"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -129,7 +129,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
+            android:id="@+id/comments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="16dp"
@@ -179,7 +179,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/customTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"

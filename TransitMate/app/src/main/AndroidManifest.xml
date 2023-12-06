@@ -30,6 +30,9 @@
             android:name=".selectDriverActivity"
             android:exported="false" />
         <activity
+            android:name=".PaymentMethodsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity

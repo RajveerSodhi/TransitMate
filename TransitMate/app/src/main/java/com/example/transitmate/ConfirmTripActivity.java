@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,13 +34,16 @@ public class ConfirmTripActivity extends AppCompatActivity {
         dest.setText(driverInfo.getString("dest"));
         name.setText(driverInfo.getString("name"));
         dandt.setText(driverInfo.getString("dandt"));
-        String costString = String.valueOf(driverInfo.getFloat("cost"));
-        cost.setText(costString);
+        cost.setText("CAD " + driverInfo.getString("cost"));
+
+        // TODO: edit map
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ConfirmTripActivity.this, "Trip Confirmed", Toast.LENGTH_SHORT).show();
+                Intent goToPaymentMethods = new Intent(ConfirmTripActivity.this, PaymentMethodsActivity.class);
+                goToPaymentMethods.putExtras(driverInfo);
+                startActivity(goToPaymentMethods);
             }
         });
 
