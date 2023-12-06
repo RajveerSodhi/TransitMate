@@ -112,8 +112,10 @@ public class DriverFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Trip Posted to TransitMate", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getContext(), MainActivity.class));
+                if(formCompleted()) {
+                    Toast.makeText(getContext(), "Trip Posted to TransitMate", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getContext(), MainActivity.class));
+                }
             }
         });
 
@@ -187,6 +189,16 @@ public class DriverFragment extends Fragment {
     private void updateTimeEditText() {
         String timeFormat = String.format(Locale.US, "%02d:%02d", selectedHour, selectedMinute);
         time.setText(timeFormat);
+    }
+
+    private boolean formCompleted() {
+        boolean formCompleted = false;
+        if (origin.getText().toString() == null) Toast.makeText(getContext(), "Please Enter an Origin", Toast.LENGTH_SHORT).show();
+        else if (dest.getText().toString()  == null) Toast.makeText(getContext(), "Please Enter a Destination", Toast.LENGTH_SHORT).show();
+        else if (date.getText().toString().length() < 1) Toast.makeText(getContext(), "Please Enter a Date of Travel", Toast.LENGTH_SHORT).show();
+        else if (time.getText().toString().length() < 1) Toast.makeText(getContext(), "Please Enter a Time of Travel", Toast.LENGTH_SHORT).show();
+        else formCompleted = true;
+        return formCompleted;
     }
 }
 
