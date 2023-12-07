@@ -677,7 +677,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="0dp"
             android:gravity="center"
-            android:text="Swipe Right to Choose Driver, Swipe Left to Reject"
+            android:text="Swipe Left to Choose Driver, Swipe Right to Reject"
             android:textStyle="italic" />
 
     </RelativeLayout>
